@@ -10,7 +10,7 @@ st.set_page_config(page_icon="👽")
 st.title("Speech to Speech :red[Assistant]")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer short, concise and complete."
+instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer short and concise. Don't give incomplete answer."
 model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.2, "max_output_tokens":200},
                               system_instruction=instruction)
 
