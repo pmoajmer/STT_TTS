@@ -15,7 +15,7 @@ model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperatur
 
 def text_to_speech(text, lang='ur'):
     with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as fp:
-        tts = gTTS(text=text, lang=lang, tld=tlds["Pakistan"], slow=False)
+        tts = gTTS(text=text, lang=lang, tld="com.in", slow=False)
         tts.save(fp.name)
         return fp.name
 
