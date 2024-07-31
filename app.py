@@ -11,7 +11,7 @@ st.title("Speech to Speech :green[Assistant]")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer concise."
-model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.2, "max_output_tokens":100},
+model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.2, "max_output_tokens":50},
                               system_instruction=instruction)
 
 def text_to_speech(text, lang='ur'):
