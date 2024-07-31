@@ -47,4 +47,4 @@ if text:
         except Exception as e:
             st.error(f"An error occured {e}")
 else:
-    st.info("Please click "Start Recording" and speak something!")
+    st.info("Please click 'Start Recording' and speak something!")
