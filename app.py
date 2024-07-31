@@ -7,11 +7,11 @@ import google.generativeai as genai
 from streamlit_mic_recorder import speech_to_text
 
 st.set_page_config(page_icon="👽")
-st.title("Speech to Speech :red[Assistant]")
+st.title("Speech to Speech :blue[Assistant]")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer concise."
-model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.2, "max_output_tokens":50},
+model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.2, "max_output_tokens":100},
                               system_instruction=instruction)
 
 def text_to_speech(text, lang='ur'):
