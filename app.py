@@ -7,7 +7,7 @@ import google.generativeai as genai
 from streamlit_mic_recorder import speech_to_text
 
 st.set_page_config(page_icon="👽")
-st.title("Speech to Speech :green[Assistant]")
+st.title("Speech to Speech :red[Assistant]")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer concise."
@@ -47,4 +47,4 @@ if text:
         except Exception as e:
             st.error(f"An error occured {e}")
 else:
-    st.info("Please speak something to generate answer!")
+    st.info("Please click "Start Recording" and speak something!")
