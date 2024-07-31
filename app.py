@@ -3,6 +3,7 @@ import os
 import google.generativeai as genai
 from streamlit_mic_recorder import speech_to_text
 
+st.set_page_config(page_title="Chatbot", page_icon="🤖")
 st.title("Google Gemini :red[Assistant]")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
