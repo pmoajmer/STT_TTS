@@ -33,9 +33,9 @@ with st.spinner("Converting speech to text..."):
     text = speech_to_text(language="ur", just_once=True, key="STT")
 
 if text:
-    st.chat_message("user").write(text)
+    st.chat_message("user", avatar="human.png").write(text)
     
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="bot.png"):
         try:
             response = st.session_state.chat.send_message(text)
             st.write(response.text)
