@@ -5,7 +5,7 @@ from streamlit_mic_recorder import speech_to_text
 
 st.title("Google Gemini :red[Assistant]")
 
-genai.configure(api_key=os.getenv("GOOGLE_GEMINI_KEY"))
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 instruction = "You are a helpful assistant for Q/A tasks. Respond to user's question in just Urdu language. Keep the answer concise."
 model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"temperature": 0.5}, system_instruction=instruction)
 
