@@ -21,8 +21,8 @@ if text:
     st.chat_message("user").write(text)
 
     with st.chat_message("assistant"):
-        response = st.session_state.chat.send_message(text, stream=True)
-        final_output = st.write_stream(response.text)
+        response = st.session_state.chat.send_message(text)
+        st.write(response.text)
 
 
 
