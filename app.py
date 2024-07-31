@@ -21,32 +21,10 @@ if text:
     st.chat_message("user").write(text)
 
     with st.chat_message("assistant"):
-        response = st.session_state.chat.send_message(text)
-        st.write(response.text)
-
-
-
-
-
-# api_key = st.text_input("Enter your API key", key="api_key", type="password")
-# if api_key:
-#     client = Groq(api_key=api_key)
-
-#     if audio_bytes:
-#         with st.spinner("Transcribing..."):
-#             file_path = "temp_audio.mp3"
-#             with open(file_path, "wb") as f:
-#                 f.write(audio_bytes)
-
-#             transcript = speech_to_text(file_path)
-#             if transcript:
-#                 st.session_state["messages"].append({"role": "user", "content": transcript})
-#                 st.chat_message("user").write(transcript)
-
-#                 os.remove(file_path)
-
-#             with st.chat_message("assistant"):
-#                 with st.spinner("Generating response..."):
-#                     response = get_response(transcript)
-#                     st.write(response)
-#                 st.session_state["messages"].append({"role": "assistant", "content": response})
+        try:
+            response = st.session_state.chat.send_message(text)
+            st.write(response.text)
+        except Exception as e:
+            st.error(f"An error occured {e}")
+else:
+    st.info("Please speak something to generate answer!")
