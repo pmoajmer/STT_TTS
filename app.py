@@ -38,9 +38,9 @@ if text:
     with st.chat_message("assistant", avatar="bot.png"):
         try:
             response = st.session_state.chat.send_message(text)
-            st.write(response.text)
-            
-            audio_file = text_to_speech(response.text)    # Generate TTS audio file
+            final_response = st.write(response.text)
+            text_to_speak = final_response.translate(str.maketrans('', '', '#*_')) # Removing special chars
+            audio_file = text_to_speech(text_to_speak)    # Generate TTS audio file
             audio_player = get_audio_player(audio_file)  # Create an audio player
             st.markdown(audio_player, unsafe_allow_html=True)
             os.remove(audio_file)  # Clean up the temporary audio file
